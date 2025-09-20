@@ -72,3 +72,23 @@ Atualmente, o sistema conta com a base de autenticação de usuários, permitind
     - Abra o navegador e acesse `http://localhost/NOME_DA_PASTA_DO_PROJETO/public/`.
 
 ## 📂 Estrutura de Pastas
+PROJETO_CONTROLE_ESTOQUE/
+│
+├── config/                 # Arquivos de configuração (ex: conexão com BD)
+│   └── db/
+│       └── conexao_db.php
+│
+├── public/                 # Pasta pública, acessível pelo navegador
+│   ├── css/                # Arquivos de estilo (CSS)
+│   ├── handlers/           # Scripts que recebem submissões de formulários
+│   ├── cadastro_usuario/
+│   │   └── index.php       # Página de cadastro
+│   └── index.php           # Página de login
+│
+├── src/                    # Código fonte da aplicação
+│   ├── Controllers/        # Lógica de negócio
+│   ├── Models/             # Interação com o banco de dados
+│   ├── Templates/          # Partes reutilizáveis do layout (header, footer)
+│   └── auth/               # Scripts de autenticação e segurança
+│
+└── README.md               # Este arquivo
