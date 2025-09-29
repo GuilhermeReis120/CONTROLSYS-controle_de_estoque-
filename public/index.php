@@ -1,14 +1,12 @@
 <?php
-// Define o título da página
+
 $titulo_da_pagina = "Login";
 
-// Inclui o cabeçalho, que já tem nosso layout e CSS
 require_once '../src/Templates/header.php';
 ?>
 
 <div class="container-form">
-    <h1>Acessar ControlSys</h1>
-
+    <img style="display: block; max-width: 300px; margin: 0 auto;" src="/imgs/Logo.png" alt="">
     <?php
     if (isset($_GET['status']) && $_GET['status'] == 'erro_login') {
         echo '<p class="mensagem-erro">E-mail ou senha inválidos. Tente novamente.</p>';

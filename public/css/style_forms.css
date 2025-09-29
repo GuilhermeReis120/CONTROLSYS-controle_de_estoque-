@@ -1,15 +1,9 @@
-/*
-FORMATAÇÃO DO FORMLARIO DE CADASTRO E LOGIN
-*/
 .container-form {
   background-color: #ffffff;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  max-width: 600px;
-  margin: 0 auto;
-  
-  /* Centraliza o formulário na área de conteúdo */
+  max-width: 600px;  margin: 0 auto;
 }
 
 .container-form h1 {
