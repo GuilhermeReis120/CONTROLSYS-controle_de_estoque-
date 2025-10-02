@@ -1,15 +1,2 @@
-@import url('/css/style_sidebar.css');
 @import url('/css/style_forms.css');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f4f6f9;
-  color: #333;
-  display: flex;
-}
+@import url('/css/style_sidebar.css');
