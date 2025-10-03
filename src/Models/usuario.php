@@ -10,7 +10,7 @@ function cadastrarUsuario(mysqli $conexao, string $nome, string $email, string $
     $stmt = $conexao->prepare($sql);
     
     if ($stmt === false) {
-      error_log('Erro na preparação do SQL: ' . $conn->error);
+      error_log('Erro na preparação do SQL: ' . $conexao->error);
       return false;
     }
 
@@ -31,7 +31,7 @@ function buscarUsuarioPorEmail(mysqli $conexao, string $email): ?array
     $stmt = $conexao->prepare($sql);
 
     if ($stmt === false) {
-      error_log('Erro na preparação do SQL: ' . $conn->error);
+      error_log('Erro na preparação do SQL: ' . $conexao->error);
       return null;
     }
 
@@ -41,26 +41,25 @@ function buscarUsuarioPorEmail(mysqli $conexao, string $email): ?array
     $resultado = $stmt->get_result();
     return $resultado->fetch_assoc();
 }
-function salvarTokenDeReset(mysqli $conn, int $usuarioId, string $token): bool
+function salvarTokenDeReset(mysqli $conexao, int $usuarioId, string $token): bool
 {
     // Token expira em 1 hora
     $dataExpiracao = date('Y-m-d H:i:s', time() + 3600); 
 
     $sql = "UPDATE usuarios SET reset_token = ?, reset_token_expires_at = ? WHERE id = ?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $conexao->prepare($sql);
     $stmt->bind_param("ssi", $token, $dataExpiracao, $usuarioId);
     
     return $stmt->execute();
 }
-function atualizarSenha(mysqli $conn, string $token, string $novaSenha): bool
+function atualizarSenha(mysqli $conexao, string $token, string $novaSenha): bool
 {
     $novaSenhaHash = password_hash($novaSenha, PASSWORD_ARGON2ID);
     
     $sql = "UPDATE usuarios SET senha = ?, reset_token = NULL, reset_token_expires_at = NULL WHERE reset_token = ?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $conexao->prepare($sql);
     $stmt->bind_param("ss", $novaSenhaHash, $token);
     
     return $stmt->execute();
 }
-  }
 ?>
