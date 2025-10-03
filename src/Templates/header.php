@@ -19,7 +19,6 @@ $currentPage = $_SERVER['REQUEST_URI'];
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/style_sidebar.css">
     <link rel="stylesheet" href="/css/style_forms.css">
-
     </head>
 <body class="<?= $bodyClass ?>">
     

@@ -10,7 +10,7 @@ function cadastrarUsuario(mysqli $conexao, string $nome, string $email, string $
     $stmt = $conexao->prepare($sql);
     
     if ($stmt === false) {
-      error_log('Erro na preparação do SQL: ' . $conexao->error);
+      error_log('Erro na preparação do SQL: ' . $conn->error);
       return false;
     }
 
@@ -31,7 +31,7 @@ function buscarUsuarioPorEmail(mysqli $conexao, string $email): ?array
     $stmt = $conexao->prepare($sql);
 
     if ($stmt === false) {
-      error_log('Erro na preparação do SQL: ' . $conexao->error);
+      error_log('Erro na preparação do SQL: ' . $conn->error);
       return null;
     }
 
@@ -62,4 +62,5 @@ function atualizarSenha(mysqli $conn, string $token, string $novaSenha): bool
     
     return $stmt->execute();
 }
+  }
 ?>
