@@ -24,6 +24,9 @@ require_once '../src/Templates/header.php';
         </div>
 
         <button type="submit" class="btn">Entrar</button>
+        <div class="link-rodape">
+            <a href="/auth/esqueci_senha.php">Esqueci minha senha</a>
+        </div>
     </form>
 </div>
 
