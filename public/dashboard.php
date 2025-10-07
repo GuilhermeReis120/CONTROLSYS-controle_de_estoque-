@@ -1,12 +1,14 @@
 <?php
 require_once '../src/auth/auth_check.php';
-require_once '../src/Templates/header.php';
-
 protegerPagina();
+
+$titulo_da_pagina = "Dashboard";
+require_once '../src/Templates/header.php';
 ?>
-<div style="margin: 0 auto; text-align: center; background: gray; padding: 20px; border-radius: 8px; color: white; width: 50%;">
+
+<div class="content-box">
   <h1>Página Protegida</h1>
-  <h2>Bem-vindo a tela de Dashboard</h2>
+  <p>Bem-vindo à tela de Dashboard, <?= htmlspecialchars($_SESSION['usuario_nome']); ?>!</p>
 </div>
 
 <?php

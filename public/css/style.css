@@ -1,3 +1,6 @@
+/* --------------------------------------------------
+   Reset e Padrões Globais
+-------------------------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +9,184 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f4f6f9;
   color: #333;
+  background-color: #f4f6f9;
+}
+
+/* --------------------------------------------------
+   Layout Principal
+-------------------------------------------------- */
+.main-content {
+  flex-grow: 1;
+  padding: 90px 30px 30px;
+  /* Adicionado padding-top para o menu fixo */
+}
+
+/* --------------------------------------------------
+   Top Navigation (Menu Superior)
+-------------------------------------------------- */
+.top-nav {
+  background-color: #2c3e50;
+  /* Azul escuro */
+  color: #ecf0f1;
+  padding: 0 30px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-nav-logo img {
+  max-height: 40px;
+  display: block;
+}
+
+.top-nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.top-nav-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.top-nav-links a:hover {
+  background-color: #34495e;
+}
+
+.top-nav-links a.active {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.top-nav-logout .logout-btn {
+  display: block;
+  padding: 8px 18px;
+  background-color: rgba(231, 76, 60, 0.8);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.top-nav-logout .logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* --------------------------------------------------
+   Layout de Login/Páginas Públicas
+-------------------------------------------------- */
+body.login-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body.login-layout .main-content {
+  flex-grow: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------
+   Caixas de Conteúdo e Formulários
+-------------------------------------------------- */
+.content-box,
+.container-form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container-form {
+  max-width: 500px;
+}
+
+.content-box h1,
+.container-form h1 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+/* --- Mensagens de Feedback --- */
+.mensagem-erro {
+  padding: 15px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mensagem-sucesso {
+  padding: 15px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
 }

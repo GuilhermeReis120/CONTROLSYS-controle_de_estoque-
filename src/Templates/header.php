@@ -1,7 +1,10 @@
 <?php
+// Garante que a sessão seja iniciada de forma segura
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+// Decide qual classe de layout usar no <body>
 $bodyClass = isset($_SESSION['usuario_id']) ? 'app-layout' : 'login-layout';
 $currentPage = $_SERVER['REQUEST_URI'];
 ?>
@@ -16,16 +19,18 @@ $currentPage = $_SERVER['REQUEST_URI'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/style_sidebar.css">
-    <link rel="stylesheet" href="/css/style_forms.css">
-    </head>
+    <link rel="stylesheet" href="/css/style.css?v=<?php echo time(); ?>">
+</head>
 <body class="<?= $bodyClass ?>">
     
     <?php if (isset($_SESSION['usuario_id'])): ?>
-        <aside class="sidebar">
-            <img style="display: block; max-width: 200px; margin-bottom: 20px;" src="/imgs/Logo_letrado.png" alt="">
-            <nav>
+        <header class="top-nav">
+            <div class="top-nav-logo">
+                <a href="/dashboard.php">
+                    <img src="/imgs/Logo_letrado.png" alt="Logo ControlSys">
+                </a>
+            </div>
+            <nav class="top-nav-links">
                 <ul>
                     <li>
                         <a href="/dashboard.php" class="<?= ($currentPage == '/dashboard.php') ? 'active' : '' ?>">
@@ -33,21 +38,23 @@ $currentPage = $_SERVER['REQUEST_URI'];
                         </a>
                     </li>
                     <li>
-                        <a href="/produtos/listar.php" class="<?= (strpos($currentPage, '/produtos/') !== false) ? 'active' : '' ?>">
+                        <a href="/produtos/listar_produto.php" class="<?= (strpos($currentPage, '/produtos/') !== false) ? 'active' : '' ?>">
                             Produtos
                         </a>
                     </li>
                     <?php if (isset($_SESSION['usuario_acesso']) && $_SESSION['usuario_acesso'] == 1): ?>
                         <li>
-                            <a href="/cadastro_usuario/usuario_cadastrar.php" class="<?= ($currentPage == '/cadastro_usuario/usuario_cadastrar.php') ? 'active' : '' ?>">
+                            <a href="/cadastro_usuario/index.php" class="<?= (strpos($currentPage, '/cadastro_usuario/') !== false) ? 'active' : '' ?>">
                                 Cadastrar Usuário
                             </a>
                         </li>
                     <?php endif; ?>
-                    <li><a href="/logout.php">Sair</a></li>
                 </ul>
             </nav>
-        </aside>
+            <div class="top-nav-logout">
+                <a href="/logout.php" class="logout-btn">Sair</a>
+            </div>
+        </header>
     <?php endif; ?>
     
     <main class="main-content">
