@@ -125,6 +125,11 @@ body.login-layout .main-content {
   text-align: center;
 }
 
+.content-box p {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
 .form-group {
   margin-bottom: 20px;
 }
