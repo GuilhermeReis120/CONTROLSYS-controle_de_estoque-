@@ -44,7 +44,7 @@ if ($action === 'request_reset') {
     if ($usuario) {
         $token = bin2hex(random_bytes(32));
         if (salvarTokenDeReset($conexao, $usuario['id'], $token)) {
-            $link = "http://controle-estoque.local/auth/redefinir_senha.php?token=" . $token;
+            $link = "http://localhost:8080/auth/redefinir_senha.php?token=" . $token;
             $mail = new PHPMailer(true);
             try {
                 
@@ -67,10 +67,10 @@ if ($action === 'request_reset') {
                   ],
                 ];
                 $mail->setFrom('gs9411517@gmail.com', 'ControlSys');
-                $mail->addAddress($usuario['email'], $usuario['nome']);
+                $mail->addAddress($usuario['Email'], $usuario['Nome']);
                 $mail->isHTML(true);
                 $mail->Subject = 'Redefinicao de Senha - ControlSys';
-                $mail->Body    = "Olá, {$usuario['nome']}.<br><br>Clique no link para redefinir sua senha: <a href='{$link}'>Redefinir Senha</a>. O link expira em 1 hora.";
+                $mail->Body    = "Olá, {$usuario['Nome']}.<br><br>Clique no link para redefinir sua senha: <a href='{$link}'>Redefinir Senha</a>. O link expira em 1 hora.";
                 $mail->send();
                 
             } catch (Exception $e) {
