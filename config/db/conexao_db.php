@@ -1,9 +1,10 @@
 <?php
 
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'controleestoque');
+define('DB_SERVER', 'db');           
+define('DB_PORT', 3306);
+define('DB_USERNAME', 'usuario');
+define('DB_PASSWORD', 'senha');
+define('DB_NAME', 'meu_banco');
 
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
